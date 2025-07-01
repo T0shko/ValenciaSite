@@ -73,128 +73,200 @@
         /* Cities Grid */
         .cities {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .cities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .city-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             cursor: pointer;
             text-decoration: none;
             display: block;
-            border: 1px solid #e9ecef;
+            border: none;
+            backdrop-filter: blur(10px);
         }
 
         .city-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .city-header {
-            padding: 0;
-            text-align: center;
             position: relative;
             overflow: hidden;
+            height: 280px;
         }
 
         .city-image {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: all 0.5s ease;
+            filter: brightness(0.9);
         }
 
         .city-card:hover .city-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            filter: brightness(1);
+        }
+
+        .city-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
         }
 
         .city-content {
-            padding: 25px;
-            text-align: left;
+            padding: 30px;
+            position: relative;
+            background: white;
         }
 
         .city-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             color: #2c3e50;
             font-family: 'Georgia', serif;
+            position: relative;
+        }
+
+        .city-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border-radius: 2px;
         }
 
         .city-description {
             font-size: 1rem;
-            line-height: 1.7;
-            color: #5a6c7d;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #6c757d;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
         .visit-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #e74c3c;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.9rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .visit-button:hover::before {
+            left: 100%;
         }
 
         .visit-button:hover {
-            background: #c0392b;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
 
         /* Individual City Styles */
-        .malaga .city-header::before {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        .malaga .city-title::after {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
         }
 
-        .malaga .city-title {
-            color: #e91e63;
+        .malaga .visit-button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
-        .valencia .city-header::before {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        .malaga .visit-button:hover {
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
         }
 
-        .valencia .city-title {
-            color: #00bcd4;
+        .valencia .city-title::after {
+            background: linear-gradient(45deg, #48cae4, #0077b6);
         }
 
-        .barcelona .city-header::before {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        .valencia .visit-button {
+            background: linear-gradient(135deg, #48cae4 0%, #0077b6 100%);
+            box-shadow: 0 4px 15px rgba(72, 202, 228, 0.3);
         }
 
-        .barcelona .city-title {
-            color: #ff9800;
+        .valencia .visit-button:hover {
+            box-shadow: 0 8px 25px rgba(72, 202, 228, 0.4);
         }
 
-        .granada .city-header::before {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .barcelona .city-title::after {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
         }
 
-        .granada .city-title {
-            color: #673ab7;
-        }
-
-        .madrid .city-header::before {
+        .barcelona .visit-button {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
         }
 
-        .madrid .city-title {
-            color: #e91e63;
+        .barcelona .visit-button:hover {
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+        }
+
+        .granada .city-title::after {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .granada .visit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .granada .visit-button:hover {
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .madrid .city-title::after {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+        }
+
+        .madrid .visit-button {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            box-shadow: 0 4px 15px rgba(252, 182, 159, 0.3);
+            color: #2c3e50;
+        }
+
+        .madrid .visit-button:hover {
+            box-shadow: 0 8px 25px rgba(252, 182, 159, 0.4);
         }
 
         /* Section Title */
@@ -272,6 +344,68 @@
             padding: 8px 16px;
             border-radius: 20px;
         }
+
+        .city-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .city-name-label {
+            margin-top: 20px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .city-name-label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .city-wrapper:hover .city-name-label::before {
+            left: 100%;
+        }
+
+        .city-wrapper:hover .city-name-label {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .malaga-label {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+        }
+
+        .barcelona-label {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .granada-label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .madrid-label {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #2c3e50;
+        }
     </style>
 </head>
 <body>
@@ -293,65 +427,77 @@
             
             <div class="cities-grid">
                 <!-- Malaga -->
-                <a href="Malaga.html" target="_blank" class="city-card malaga">
-                    <div class="city-header">
-                        <img src="https://plus.unsplash.com/premium_photo-1697729549014-2faefb25efba?q=80&w=2875&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Málaga" class="city-image">
-                        <div class="city-content">
-                            <h3 class="city-title">Málaga</h3>
-                            <p class="city-description">
-                                The birthplace of Picasso, Málaga combines ancient history with modern Mediterranean charm. 
-                                Stroll through the historic center, visit the Alcazaba fortress, and enjoy fresh seafood 
-                                at the bustling port.
-                            </p>
-                            <div class="visit-button">Visit Málaga</div>
+                <div class="city-wrapper">
+                    <a href="Malaga.html" target="_blank" class="city-card malaga">
+                        <div class="city-header">
+                            <img src="https://plus.unsplash.com/premium_photo-1697729549014-2faefb25efba?q=80&w=2875&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Málaga" class="city-image">
+                            <div class="city-content">
+                                <h3 class="city-title">Málaga</h3>
+                                <p class="city-description">
+                                    The birthplace of Picasso, Málaga combines ancient history with modern Mediterranean charm. 
+                                    Stroll through the historic center, visit the Alcazaba fortress, and enjoy fresh seafood 
+                                    at the bustling port.
+                                </p>
+                                <div class="visit-button">Visit Málaga</div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                    <div class="city-name-label malaga-label">Málaga</div>
+                </div>
 
                 <!-- Barcelona -->
-                <a href="Barcelona.html" target="_blank" class="city-card barcelona">
-                    <div class="city-header">
-                        <img src="https://images.unsplash.com/photo-1610213989414-acc5773ba2c6?q=80&w=3135&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barcelona" class="city-image">
-                        <div class="city-content">
-                            <h3 class="city-title">Barcelona</h3>
-                            <p class="city-description">
-                                Gaudi's architectural masterpieces, the Gothic Quarter's medieval charm, and the vibrant 
-                                La Rambla boulevard define this cosmopolitan city. From the Sagrada Familia to the beachfront.
-                            </p>
-                            <div class="visit-button">Visit Barcelona</div>
+                <div class="city-wrapper">
+                    <a href="Barcelona.html" target="_blank" class="city-card barcelona">
+                        <div class="city-header">
+                            <img src="https://images.unsplash.com/photo-1610213989414-acc5773ba2c6?q=80&w=3135&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barcelona" class="city-image">
+                            <div class="city-content">
+                                <h3 class="city-title">Barcelona</h3>
+                                <p class="city-description">
+                                    Gaudi's architectural masterpieces, the Gothic Quarter's medieval charm, and the vibrant 
+                                    La Rambla boulevard define this cosmopolitan city. From the Sagrada Familia to the beachfront.
+                                </p>
+                                <div class="visit-button">Visit Barcelona</div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                    <div class="city-name-label barcelona-label">Barcelona</div>
+                </div>
 
                 <!-- Granada -->
-                <a href="granada.html" target="_blank" class="city-card granada">
-                    <div class="city-header">
-                        <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=800&h=600&fit=crop" alt="Granada" class="city-image">
-                        <div class="city-content">
-                            <h3 class="city-title">Granada</h3>
-                            <p class="city-description">
-                                Nestled at the foot of the Sierra Nevada mountains, Granada is home to the magnificent 
-                                Alhambra palace complex. The Albayzín neighborhood's white-washed houses transport visitors to another era.
-                            </p>
-                            <div class="visit-button">Visit Granada</div>
+                <div class="city-wrapper">
+                    <a href="granada.html" target="_blank" class="city-card granada">
+                        <div class="city-header">
+                            <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=800&h=600&fit=crop" alt="Granada" class="city-image">
+                            <div class="city-content">
+                                <h3 class="city-title">Granada</h3>
+                                <p class="city-description">
+                                    Nestled at the foot of the Sierra Nevada mountains, Granada is home to the magnificent 
+                                    Alhambra palace complex. The Albayzín neighborhood's white-washed houses transport visitors to another era.
+                                </p>
+                                <div class="visit-button">Visit Granada</div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                    <div class="city-name-label granada-label">Granada</div>
+                </div>
 
                 <!-- Madrid -->
-                <a href="madrid.html" target="_blank" class="city-card madrid">
-                    <div class="city-header">
-                            <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Madrid" class="city-image">
-                            <div class="city-content">
-                            <h3 class="city-title">Madrid</h3>
-                            <p class="city-description">
-                                Spain's vibrant capital pulses with energy day and night. From the Prado Museum's masterpieces 
-                                to the bustling Plaza Mayor, Madrid offers world-class art, delicious tapas, and unforgettable nightlife.
-                            </p>
-                            <div class="visit-button">Visit Madrid</div>
-                        </div>
-                    </div>
-                </a>
+                <div class="city-wrapper">
+                    <a href="madrid.html" target="_blank" class="city-card madrid">
+                        <div class="city-header">
+                             <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Madrid" class="city-image">
+                              <div class="city-content">
+                              <h3 class="city-title">Madrid</h3>
+                              <p class="city-description">
+                                  Spain's vibrant capital pulses with energy day and night. From the Prado Museum's masterpieces 
+                                  to the bustling Plaza Mayor, Madrid offers world-class art, delicious tapas, and unforgettable nightlife.
+                              </p>
+                              <div class="visit-button">Visit Madrid</div>
+                              </div>
+                          </div>
+                    </a>
+                    <div class="city-name-label madrid-label">Madrid</div>
+                </div>
             </div>
         </div>
     </section>
