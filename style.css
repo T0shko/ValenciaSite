@@ -1,0 +1,25 @@
+.heading{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-color: rgb(215, 84, 84);
+    color: rgb(243, 226, 158);
+}
+.firstP{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.secondP{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.thirdP{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
